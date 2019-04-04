@@ -30,4 +30,8 @@ export class Users implements OnInit{
         this.router.navigate(["editUser", userId]);
     }
     
+    public onDeleteClicked(userId: number) {
+        this.userService.deleteUser(userId).subscribe();
+        console.log("Delete Successfully!", userId);
+    }
 }
