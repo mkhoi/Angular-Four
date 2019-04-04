@@ -30,5 +30,10 @@ export class UserService implements IUserService {
     public addUser(user: User): Observable<User> {
         return this.http.post(this.urlUser, user, this.options).map(this.extractData).catch(this.handleError);
     }
+
+    public updateUser(userId: number, user: User): Observable<User>{
+        let url = `http://localhost:3696/api/users/${userId}`;
+        return this.http.put(url, JSON.stringify(user), this.options).map(this.extractData).catch(this.handleError);
+    }
     
 }
